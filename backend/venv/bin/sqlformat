@@ -1,4 +1,4 @@
-#!/Users/onlygodovbije/mine/social-login-django-react/backend/venv/bin/python
+#!/Users/vonguyen/Desktop/social-login-django-reactjs/backend/venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys

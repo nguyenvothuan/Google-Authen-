@@ -24,6 +24,7 @@ def generate_tokens_for_user(user):
 
 
 def google_get_access_token(*, code: str, redirect_uri: str) -> str:
+    
     data = {
         'code': code,
         'client_id': settings.GOOGLE_OAUTH2_CLIENT_ID,
@@ -31,10 +32,14 @@ def google_get_access_token(*, code: str, redirect_uri: str) -> str:
         'redirect_uri': redirect_uri,
         'grant_type': 'authorization_code'
     }
-
+    # print(code)
+    # return 1
     response = requests.post(GOOGLE_ACCESS_TOKEN_OBTAIN_URL, data=data)
-
+    # print(response.ok)
     if not response.ok:
+        print(data)
+        print('Failed to obtain access token from Google.')
+        print(response.json())
         raise ValidationError('Failed to obtain access token from Google.')
 
     access_token = response.json()['access_token']
@@ -49,6 +54,8 @@ def google_get_user_info(*, access_token:  str) -> Dict[str, Any]:
     )                   
 
     if not response.ok:
+        print('Failed to obtain user info from Google.')
+        # print(response.json())
         raise ValidationError('Failed to obtain user info from Google.')
 
     return response.json()

@@ -141,7 +141,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     ]
 
-BASE_FRONTEND_URL = os.environ.get('DJANGO_BASE_FRONTEND_URL', default='http://localhost:3000')
+BASE_FRONTEND_URL = 'http://localhost:3000'
 # Google OAuth2 settings
-GOOGLE_OAUTH2_CLIENT_ID = os.environ.get('GOOGLE_OAUTH2_CLIENT_ID')
-GOOGLE_OAUTH2_CLIENT_SECRET = os.environ.get('GOOGLE_OAUTH2_CLIENT_SECRET')
+GOOGLE_OAUTH2_CLIENT_ID = '711443174018-r577ahjedp8n1g688qlmritcnptak50g.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = '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'

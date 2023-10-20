@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/onlygodovbije/mine/social-login-django-react/backend/venv"
+VIRTUAL_ENV="/Users/vonguyen/Desktop/social-login-django-reactjs/backend/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

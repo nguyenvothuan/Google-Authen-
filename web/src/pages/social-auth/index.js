@@ -4,7 +4,7 @@ import queryString from "query-string";
 import axios from "axios";
 import "./index.css";
 
-const  BACKEND_API_URL = "http://127.0.0.1:8000"
+const BACKEND_API_URL = "http://127.0.0.1:8080"
 
 const SocialAuth = () => {
   let location = useLocation();
@@ -13,17 +13,22 @@ const SocialAuth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("useEffect")
     const values = queryString.parse(location.search);
     const code = values.code ? values.code : null;
 
     if (code) {
+      console.log("called")
       onGogglelogin();
     }
   }, []);
 
   const googleLoginHandler = (code) => {
+  
+    
+
     return axios
-      .get(`${BACKEND_API_URL}/api/auth/google/${code}`)
+      .get(`${BACKEND_API_URL}/api/accounts/auth/google/${code}`)
       .then((res) => {
         console.log("res", res)
         localStorage.setItem("goggleFirstName", res.data.user.first_name);
@@ -37,6 +42,7 @@ const SocialAuth = () => {
   };
 
   const onGogglelogin = async () => {
+    console.log(location.search)
     const response = await googleLoginHandler(location.search);
     console.log(response);
   }
@@ -49,9 +55,9 @@ const SocialAuth = () => {
         <div className="loading-icon__circle loading-icon__circle--third"></div>
         <div className="loading-icon__circle loading-icon__circle--fourth"></div>
       </div>
-        <small className=" text-center mr-2">
-          Just a moment
-        </small>
+      <small className=" text-center mr-2">
+        Just a moment
+      </small>
     </div>
   );
 };
